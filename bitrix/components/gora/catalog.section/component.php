@@ -33,7 +33,7 @@
          b_iblock_property as prop_type,
          b_iblock_element as element
          WHERE
-           prop_type.CODE = '" . $prop_id . "' AND
+           prop_type.CODE = '{$prop_id}' AND
            prop.IBLOCK_PROPERTY_ID = prop_type.ID AND
            prop.VALUE IS NOT NULL  AND
            brand.IBLOCK_PROPERTY_ID = 73 AND

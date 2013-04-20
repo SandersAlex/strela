@@ -1,4 +1,4 @@
 *.xml
-.idea
-var/
+.idea/
 .gitignore
+upload/

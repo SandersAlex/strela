@@ -6,9 +6,17 @@
     {
         $types = array(
             'Горные' => 'GORNYE',
+            'Горные женские' => 'GORNYE_ZHENSKIE',
+            'Горные двухподвесы' => 'GORNYE_DVUKHPODVESY',
+            'Горные 29"' => 'GORNYE_29',
             'Дорожные' => 'DOROZHNYE',
             'Подростковые' => 'PODROSTKOVYE',
             'Циклокроссовые' => 'TSIKLOKROSSOVYE',
+            'Детские' => 'DETSKIE',
+            'Шоссейные' => 'SHOSSEYNYE',
+            'Складные' => 'SKLADNYE',
+            'Гибридные' => 'GIBRIDNYE',
+            'Электро' => 'ELEKTRO',
         );
         $result = array();
         global $DB;

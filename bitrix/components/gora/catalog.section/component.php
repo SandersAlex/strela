@@ -1,8 +1,10 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 }
-	CModule::IncludeModule('iblock');
 	include_once('classes/velo_catalog.php');
+
+	CModule::IncludeModule('iblock');
+
 
 	$base = array(
 		'17' => 'Аксессуары',
@@ -20,21 +22,8 @@
 		$arResult['ITEMS'][$vol] = $key;
 	}
 
-	//    получаем бренды
-	$q         = "
-SELECT
-      prop.VALUE
-    FROM
-     b_iblock_element_property as prop
-     WHERE
-       IBLOCK_PROPERTY_ID = 73
-       GROUP BY prop.VALUE
-    ";
-	$CDBResult = $DB->Query($q);
-	while ($t = $CDBResult->Fetch()) {
-		$result[] = $t;
-	}
-	$arResult['ITEMS']['Велосипеды'] = array('brands' => $result);
+
+	$arResult['ITEMS']['Велосипеды'] = array('brands' => velo_catalog::getBrends());
 
 
 	$arResult['ITEMS']['Велосипеды']['types'] = array(
@@ -52,10 +41,27 @@ SELECT
 		'Циклокроссовые',
 		'Электро',
 	);
-	$value                                    = null;
-	$types                                    = array();
+
+	$value = null;
+	$types = array();
+
 	foreach ($arResult['ITEMS']['Велосипеды']['types'] as $value) {
-		$types[$value] = velo_catalog::getBrandsByType($value);
+
+		if ($value == 'Детские') {
+			$types[] = array(
+				'URL' => '/type/DETSKIE/',
+				'VALUE' =>$value,
+				'SUBMENU' =>velo_catalog::getBrandsByEge('DETSKIE'))
+			;
+		}
+		else {
+			$types[] = array(
+				'VALUE' => $value,
+				'URL' => '/type/'.velo_catalog::$types[$value]."/",
+				'SUBMENU' => velo_catalog::getBrandsByType($value)
+			);
+		}
+
 	}
 	$arResult['ITEMS']['Велосипеды']['types'] = $types;
 

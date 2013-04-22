@@ -22,7 +22,7 @@
 
 		<?foreach ($arResult["ITEMS"] as $key => $arItem):
 			if (is_array($arItem)) {
-				$bPicture = is_array($arItem["PREVIEW_PICTURE"]);
+				$bPicture = is_array($arItem["DETAIL_PICTURE"]);
 				?>
 				<li>
 				<? if ($bPicture): ?>

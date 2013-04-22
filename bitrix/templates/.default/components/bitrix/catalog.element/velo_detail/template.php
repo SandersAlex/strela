@@ -30,8 +30,8 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 		<? foreach ($arResult['PROPERTIES']['FILES']['VALUE'] as $photo): ?>
 			<div class = "small_picture">
 				<img src = "<?= CFile::ResizeImageGet($photo, array(
-					'width' => 49,
-					'height' => 49
+					'width' => 50,
+					'height' => 50
 				)) ?>" alt = ""/>
 			</div>
 		<? endforeach ?>

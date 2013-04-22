@@ -1,5 +1,5 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<!--<pre>--><?//print_r($arResult)?><!--</pre>-->
+<pre><?print_r($arResult)?></pre>
 <ul id="nav">
     <? foreach ($arResult['ITEMS'] as $key => $item): ?>
     <li><a href="<?=$item['LIST_PAGE_URL']?>"><?=$key?></a>

@@ -22,7 +22,7 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 
 ?>
 <!--    --><? //= count($arResult['OFFERS'])?>
-<pre><?print_r($array)?></pre>
+<!--<pre>--><?//print_r($array)?><!--</pre>-->
 
 <div class = "main_picture">
 	<div class = "big_picture">

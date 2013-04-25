@@ -17,7 +17,7 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 ));
 
 ?>
-<!--    --><? //echo count($arResult['OFFERS'])?>
+<!--    --><?//= count($arResult['OFFERS'])?>
 <!--<pre>--><?//print_r($array)?><!--</pre>-->
 
 <div class = "main_picture">
@@ -113,24 +113,24 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 <table class = "option" cellpadding = "0" cellspacing = "0">
 	<?
 	$types = array(
-		'??????' => 'GORNYE',
-		'?????? ???????' => 'GORNYE_ZHENSKIE',
-		'?????? ???????????' => 'GORNYE_DVUKHPODVESY',
-		'?????? 29"' => 'GORNYE_29',
-		'????????' => 'DOROZHNYE',
-		'????????????' => 'PODROSTKOVYE',
-		'??????????????' => 'TSIKLOKROSSOVYE',
-		'???????' => 'DETSKIE',
-		'?????????' => 'SHOSSEYNYE',
-		'????????' => 'SKLADNYE',
-		'?????????' => 'GIBRIDNYE',
-		'???????' => 'ELEKTRO',
+		'Горные' => 'GORNYE',
+		'Горные женские' => 'GORNYE_ZHENSKIE',
+		'Горные двухподвесы' => 'GORNYE_DVUKHPODVESY',
+		'Горные 29"' => 'GORNYE_29',
+		'Дорожные' => 'DOROZHNYE',
+		'Подростковые' => 'PODROSTKOVYE',
+		'Циклокроссовые' => 'TSIKLOKROSSOVYE',
+		'Детские' => 'DETSKIE',
+		'Шоссейные' => 'SHOSSEYNYE',
+		'Складные' => 'SKLADNYE',
+		'Гибридные' => 'GIBRIDNYE',
+		'Электро' => 'ELEKTRO',
 	);
 	?>
 	<?foreach ($arResult['PROPERTIES'] as $key => $prop): ?>
 		<? if ($prop['VALUE'] != '' &&
 				!is_array($prop['VALUE']) &&
-				$prop['NAME'] != '??????? ???????' &&
+				$prop['NAME'] != 'Базовая единица' &&
 				!in_array($key,$types)
 		): ?>
 			<tr>
@@ -139,7 +139,6 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 			</tr>
 		<? endif ?>
 	<? endforeach?>
-
 </table>
 <div class = "marg">
 	<p> <?=str_replace("\n", "<br>", $arResult['DETAIL_TEXT'])?></p>

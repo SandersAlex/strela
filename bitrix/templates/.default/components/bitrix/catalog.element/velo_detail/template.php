@@ -38,28 +38,74 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 	<? endif?>
 </div>
 
-<div class = "opisanie">
-	<h4><?=$arResult['NAME']?></h4>
+<!--<div class = "opisanie">-->
+<!--	<h4></h4>-->
+<!---->
+<!--	<div class = "price1">17 900 руб</div>-->
+<!---->
+<!--	<form method = "post" action = "#">-->
+<!--		<input type = "submit" name = "text" class = "sub2" value = "В корзину"/>-->
+<!---->
+<!--		<div class = "clear"></div>-->
+<!--		<p>В наличии</p>-->
+<!---->
+<!--		<p>подбор по росту: <input type = "text" id = "growth" class = "text-form"/></p>-->
+<!---->
+<!--		<a href = "#" id = "btn_calc_frame_size">подобрать</a>-->
+<!---->
+<!--		<div id = "frame_size_content" class = "m10"></div>-->
+<!---->
+<!--		<p><b>цвет:</b>-->
+<!--			--><?//=Form::select('offer', $array, true)?>
+<!--		</p>-->
+<!---->
+<!--	</form>-->
+<!---->
+<!--</div>-->
 
-	<div class = "price1">17 900 руб</div>
+<div class="opisanie">
+    <h4><?=$arResult['NAME']?></h4>
 
-	<form method = "post" action = "#">
-		<input type = "submit" name = "text" class = "sub2" value = "в корзину"/>
+    <div class = "price1">17 900 руб</div>
 
-		<div class = "clear"></div>
-		<p>В наличии</p>
+    <form method="post" action="#">
+        <input type="submit" name="text" class="sub2" value="в корзину"/>
 
-		<p>Подбор по росту: <input type = "text" id = "growth" class = "text-form"/></p>
+        <div class="clear"></div>
+        <p>В наличии</p>
 
-		<a href = "#" id = "btn_calc_frame_size">подобрать</a>
+        <p>Подбор по росту: <input type="text" id="growth" class="text-form"/>
+            <a href="#" id="btn_calc_frame_size">подобрать</a>
+        </p>
 
-		<div id = "frame_size_content" class = "m10"></div>
 
-		<p><b>Варианты:</b>
-			<?=Form::select('offer', $array, true)?>
-		</p>
+        <div id="frame_size_content" class="m10"></div>
 
-	</form>
+        <div class="select_main">
+            <span>Выберите размер:</span>
+            <ul class="select_size">
+                <li><a href="#">17</a></li>
+                <li><a href="#">18</a></li>
+                <li><a href="#">19</a></li>
+                <li><a href="#">20</a></li>
+                <li><a href="#">21</a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+
+        <div class="select_main">
+            <span>Выберите цвет:</span>
+            <ul class="setting_color">
+                <li><a href="#">зелено-синий</a></li>
+                <li><a href="#">зелено-синий</a></li>
+                <li><a href="#">зелено-синий</a></li>
+                <li><a href="#">зелено-синий</a></li>
+                <li><a href="#">зелено-синий</a></li>
+            </ul>
+        </div>
+
+
+    </form>
 
 </div>
 <div class = "clear"></div>
@@ -67,24 +113,24 @@ $pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE']['ID'], array(
 <table class = "option" cellpadding = "0" cellspacing = "0">
 	<?
 	$types = array(
-		'Горные' => 'GORNYE',
-		'Горные женские' => 'GORNYE_ZHENSKIE',
-		'Горные двухподвесы' => 'GORNYE_DVUKHPODVESY',
-		'Горные 29"' => 'GORNYE_29',
-		'Дорожные' => 'DOROZHNYE',
-		'Подростковые' => 'PODROSTKOVYE',
-		'Циклокроссовые' => 'TSIKLOKROSSOVYE',
-		'Детские' => 'DETSKIE',
-		'Шоссейные' => 'SHOSSEYNYE',
-		'Складные' => 'SKLADNYE',
-		'Гибридные' => 'GIBRIDNYE',
-		'Электро' => 'ELEKTRO',
+		'??????' => 'GORNYE',
+		'?????? ???????' => 'GORNYE_ZHENSKIE',
+		'?????? ???????????' => 'GORNYE_DVUKHPODVESY',
+		'?????? 29"' => 'GORNYE_29',
+		'????????' => 'DOROZHNYE',
+		'????????????' => 'PODROSTKOVYE',
+		'??????????????' => 'TSIKLOKROSSOVYE',
+		'???????' => 'DETSKIE',
+		'?????????' => 'SHOSSEYNYE',
+		'????????' => 'SKLADNYE',
+		'?????????' => 'GIBRIDNYE',
+		'???????' => 'ELEKTRO',
 	);
 	?>
 	<?foreach ($arResult['PROPERTIES'] as $key => $prop): ?>
 		<? if ($prop['VALUE'] != '' &&
 				!is_array($prop['VALUE']) &&
-				$prop['NAME'] != 'Базовая единица' &&
+				$prop['NAME'] != '??????? ???????' &&
 				!in_array($key,$types)
 		): ?>
 			<tr>

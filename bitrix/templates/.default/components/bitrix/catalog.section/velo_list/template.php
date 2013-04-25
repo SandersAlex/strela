@@ -29,8 +29,8 @@
 					<div class = "img_tovar">
 						<a class = "link" href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">
 							<?$img = CFile::ResizeImageGet($arItem['DETAIL_PICTURE']['ID'], array(
-								'width' => 150,
-								'height' => 130
+								'width' => 151,
+								'height' => 131
 							))?>
 							<img class = "item_img" itemprop = "image" src = "<?= $img['src'] ?>" alt = "<?= $arElement["NAME"] ?>"/></a>
 					</div>

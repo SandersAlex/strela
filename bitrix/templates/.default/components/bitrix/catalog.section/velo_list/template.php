@@ -25,79 +25,79 @@
 				$bPicture = is_array($arItem["DETAIL_PICTURE"]);
 				?>
 				<li>
-				<? if ($bPicture): ?>
-					<div class = "img_tovar">
-						<a class = "link" href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">
-							<?$img = CFile::ResizeImageGet($arItem['DETAIL_PICTURE']['ID'], array(
-								'width' => 220,
-								'height' => 150
-							))?>
-							<img class = "item_img" itemprop = "image" src = "<?= $img['src'] ?>" alt = "<?= $arElement["NAME"] ?>"/></a>
-					</div>
-				<? else: ?>
-					<div class = "img_tovar">
-						<a href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">
-							<div class = "no-photo-div-big" style = "height:130px; width:130px;"></div>
-						</a>
-					</div>
-				<?endif ?>
-
-				<p><?=$arItem["NAME"]?></p>
-				<!--	<div class="buy">
-						<div class="price">--><?
-				if (is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) //if product has offers
-				{
-					if (count($arItem["OFFERS"]) > 1) {
-						?>
-						<div itemprop = "price" class = "price">
-							<?
-							//echo GetMessage("CR_PRICE_OT")."&nbsp;";
-							echo $arItem["PRINT_MIN_OFFER_PRICE"];
-							?>
+					<? if ($bPicture): ?>
+						<div class = "img_tovar">
+							<a class = "link" href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">
+								<?$img = CFile::ResizeImageGet($arItem['DETAIL_PICTURE']['ID'], array(
+									'width' => 220,
+									'height' => 150
+								))?>
+								<img class = "item_img" itemprop = "image" src = "<?= $img['src'] ?>" alt = "<?= $arElement["NAME"] ?>"/></a>
 						</div>
-					<?
-					}
-					else {
-						foreach ($arItem["OFFERS"] as $arOffer):?>
-							<? foreach ($arOffer["PRICES"] as $code => $arPrice): ?>
-								<? if ($arPrice["CAN_ACCESS"]): ?>
-									<? if ($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]): ?>
-										<div itemprop = "discount-price" class = "price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></div><br>
-										<div class = "old-price"><?=$arPrice["PRINT_VALUE"]?></div><br>
-									<? else: ?>
-										<div itemprop = "price" class = "price"><?=$arPrice["PRINT_VALUE"]?></div>
-									<?endif ?>
-								<? endif; ?>
-							<? endforeach; ?>
-						<?endforeach;
-					}
-				}
-				else // if product doesn't have offers
-				{
-					foreach ($arItem["PRICES"] as $code => $arPrice):
-						if ($arPrice["CAN_ACCESS"]):
-							?>
-							<? if ($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]): ?>
-							<div itemprop = "price" class = "price discount-price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></div><br>
-							<div itemprop = "price" class = "old-price"><?=$arPrice["PRINT_VALUE"]?></div>
-						<? else: ?>
-							<div itemprop = "price" class = "price"><?=$arPrice["PRINT_VALUE"]?></div>
-						<?endif; ?>
-						<?
-						endif;
-					endforeach;
-				}
-				?>
-                    <div class="prop">Кол-во скоростей <span><?=$arItem['PROPERTIES']['KOL_VO_SKOROSTEY']['VALUE']?></span></div>
-                    <div class="prop">Материал рамы <span><?=$arItem['PROPERTIES']['MATERIAL_RAMY']['VALUE']?></span></div>
-                    <div class="prop">Диаметр колеса <span><?=$arItem['PROPERTIES']['RAZMER_KOLESA']['VALUE']?></span></div>
-				<a class = "sub_a" href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">Подробно</a>
-				<!--		</div>
+					<? else: ?>
+						<div class = "img_tovar">
+							<a href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">
+								<div class = "no-photo-div-big" style = "height:130px; width:130px;"></div>
+							</a>
+						</div>
+					<?endif ?>
 
-					   </div>    -->
-				<? if (!(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) && !$arItem["CAN_BUY"]): ?>
-					<div class = "badge notavailable"><?=GetMessage("CATALOG_NOT_AVAILABLE2")?></div>
-				<? endif ?>
+					<p><?=$arItem["NAME"]?></p>
+					<!--	<div class="buy">
+							<div class="price">--><?
+					if (is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) //if product has offers
+					{
+						if (count($arItem["OFFERS"]) > 1) {
+							?>
+							<div itemprop = "price" class = "price">
+								<?
+								//echo GetMessage("CR_PRICE_OT")."&nbsp;";
+								echo $arItem["PRINT_MIN_OFFER_PRICE"];
+								?>
+							</div>
+						<?
+						}
+						else {
+							foreach ($arItem["OFFERS"] as $arOffer):?>
+								<? foreach ($arOffer["PRICES"] as $code => $arPrice): ?>
+									<? if ($arPrice["CAN_ACCESS"]): ?>
+										<? if ($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]): ?>
+											<div itemprop = "discount-price" class = "price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></div><br>
+											<div class = "old-price"><?=$arPrice["PRINT_VALUE"]?></div><br>
+										<? else: ?>
+											<div itemprop = "price" class = "price"><?=$arPrice["PRINT_VALUE"]?></div>
+										<?endif ?>
+									<? endif; ?>
+								<? endforeach; ?>
+							<?endforeach;
+						}
+					}
+					else // if product doesn't have offers
+					{
+						foreach ($arItem["PRICES"] as $code => $arPrice):
+							if ($arPrice["CAN_ACCESS"]):
+								?>
+								<? if ($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]): ?>
+								<div itemprop = "price" class = "price discount-price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></div><br>
+								<div itemprop = "price" class = "old-price"><?=$arPrice["PRINT_VALUE"]?></div>
+							<? else: ?>
+								<div itemprop = "price" class = "price"><?=$arPrice["PRINT_VALUE"]?></div>
+							<?endif; ?>
+							<?
+							endif;
+						endforeach;
+					}
+					?>
+					<div class = "prop">Кол-во скоростей <span><?=$arItem['PROPERTIES']['KOL_VO_SKOROSTEY']['VALUE']?></span></div>
+					<div class = "prop">Материал рамы <span><?=$arItem['PROPERTIES']['MATERIAL_RAMY']['VALUE']?></span></div>
+					<div class = "prop">Диаметр колеса <span><?=$arItem['PROPERTIES']['RAZMER_KOLESA']['VALUE']?></span></div>
+					<a class = "sub_a" href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">Подробно</a>
+					<!--		</div>
+
+						   </div>    -->
+					<? if (!(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) && !$arItem["CAN_BUY"]): ?>
+						<div class = "badge notavailable"><?=GetMessage("CATALOG_NOT_AVAILABLE2")?></div>
+					<? endif ?>
 				</li>
 			<?
 			}
@@ -105,7 +105,7 @@
 		?>
 	</ul>
 
-	<?=$arResult['NAV_STRING']?>
+	<?= $arResult['NAV_STRING'] ?>
 <? elseif ($USER->IsAdmin()): ?>
 	<h3 class = "hitsale"><span></span><?=GetMessage("CR_TITLE_" . $arParams["FLAG_PROPERTY_CODE"])?></h3>
 	<div class = "listitem-carousel">

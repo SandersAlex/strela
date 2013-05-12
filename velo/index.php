@@ -3,6 +3,8 @@
     $APPLICATION->SetTitle("Велосипеды");
 ?> <?
     Global $arrFilter;
+
+	CModule::IncludeModule('my_module');
     $arrFilter['PROPERTY_MARKA'] = isset($_REQUEST['BRAND']) ? urldecode($_REQUEST['BRAND']) : null;
     if (isset($_REQUEST['TYPE'])) {
         $arrFilter["PROPERTY_".$_REQUEST['TYPE']] = 'Да';
@@ -14,6 +16,11 @@
 	    }
         $arrFilter["PROPERTY_RAZMER_KOLESA"] = $res;
     }
+	foreach(velo_config::$proprs as $key=>$vol){
+		if(isset($_REQUEST[$vol['CODE']]) && $_REQUEST[$vol['CODE']] != ''){
+			$arrFilter["PROPERTY_".$vol['CODE']] = $_REQUEST[$vol['CODE']];
+		}
+	}
 
 ?> <?$APPLICATION->IncludeComponent(
 	"gora:catalog.filter",

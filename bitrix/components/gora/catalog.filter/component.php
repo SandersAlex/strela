@@ -2,15 +2,16 @@
 	die();
 }
 
+	CModule::IncludeModule('my_module');
 
-	include_once('classes/velo_properties.php');
+
 
 	$props = new velo_properties();
 
 	foreach ($props->result as $key => $vol) {
-		$forms[velo_properties::GetNamePropsByPropsCode($key)] = FORM::Select($vol, $key);
+		$forms[velo_properties::GetNamePropsByPropsCode($key)] = Form_alter::Select($vol, $key);
 	}
-	$arResult['result'] = $props->result;
+	$arResult['result'] = $props;
 	$arResult['FORMS'] = $forms;
 
 

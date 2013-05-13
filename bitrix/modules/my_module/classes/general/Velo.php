@@ -12,7 +12,7 @@
 			$property_id = self::$property_id;
 			$q           = "
 				SELECT
-				 COUNT(offers)
+				 COUNT(offers.ID)
 				FROM
 						b_iblock_element_property as svyaz,
 						b_iblock_element_property as property,

@@ -24,6 +24,7 @@
 
 ?> <?$APPLICATION->IncludeComponent(
 	"gora:catalog.filter",
+
 	"",
 Array(),
 false

@@ -8,5 +8,6 @@
         'Form_alter' => 'classes/general/Form_alter.php',
         'velo_properties' => 'classes/general/velo_properties.php',
         'velo_config' => 'classes/general/velo_config.php',
+        'velo' => 'classes/general/Velo.php',
     );
     CModule::AddAutoloadClasses("my_module", $arClasses);

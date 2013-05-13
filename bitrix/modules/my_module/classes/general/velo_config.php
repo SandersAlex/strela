@@ -2,10 +2,10 @@
 	class velo_config
 	{
 		static $proprs = array( //список свойств для фильтра
-			//			'Страна' => array(
-			//				'ID' => '265',
-			//				'CODE' => 'STRANA'
-			//			),
+//			'Страна' => array(
+//				'ID' => '265',
+//				'CODE' => 'STRANA'
+//			),
 			'Марка' => array(
 				'ID' => '267',
 				'CODE' => 'MARKA'

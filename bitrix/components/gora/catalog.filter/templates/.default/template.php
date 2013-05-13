@@ -3,7 +3,7 @@
 } ?>
 <!--<pre>--><?//print_r($arResult)?><!--</pre>-->
 <div>
-	<form method="GET">
+	<form action="/velo/" method="GET">
 		<h2>Подобрать по своствам:</h2>
 		<?foreach ($arResult['FORMS'] as $key => $vol): ?>
 			<div class = "option_filter"><?=$key?> <?=$vol?></div>

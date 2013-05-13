@@ -10,8 +10,15 @@ CModule::IncludeModule('my_module');
 foreach ($arResult['OFFERS'] as $offer) {
     foreach ($offer['DISPLAY_PROPERTIES']['CML2_ATTRIBUTES']['VALUE'] as $key => $atr) {
         $array[$offer['ID']][] = $atr . " ";
-        $colors[] = $atr[1];
-        $size[] = $atr[0];
+	    if(!in_array($atr[1],$colors)){
+		    $colors[] = $atr[1];
+	    }
+	    if(!in_array($atr[0],$size)){
+		    $size[] = $atr[0];
+	    }
+
+
+
         //		$offer['DISPLAY_PROPERTIES']['CML2_ATTRIBUTES']['DESCRIPTION'][$key] . " : " .
     }
     //        $colors[$offer['ID']] = $offer['DISPLAY_PROPERTIES']['CML2_ATTRIBUTES']['VALUE'][1];

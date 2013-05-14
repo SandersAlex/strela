@@ -1,7 +1,7 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
-<?$pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE'],array(
+<?$pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE'], array(
 	'width' => 200,
 	'height' => 200,
 ))?>
@@ -13,20 +13,23 @@
 			<img src = "<?= $pics['src'] ?>" alt = ""/>
 		</a>
 	</div>
-	<? if (count($arResult['PROPERTIES']['FILES']['VALUE']) > 0): ?>
-		<? foreach ($arResult['PROPERTIES']['FILES']['VALUE'] as $photo): ?>
+	<br>
+	<? if (count($arResult['PROPERIES']['MORE_PHOTO']['VALUE']) > 0): ?>
+		<? foreach ($arResult['PROPERIES']['MORE_PHOTO']['VALUE'] as $photo): ?>
+			<?
+			$small = CFile::ResizeImageGet($photo, array(
+				'width' => 51,
+				'height' => 51
+			)) ?>
+
 			<div class = "small_picture">
-				<img src = "<?=
-				CFile::ResizeImageGet($photo, array(
-					'width' => 50,
-					'height' => 50
-				)) ?>" alt = ""/>
+				<img src = "<?= $small['src']?>" alt = ""/>
 			</div>
 		<? endforeach ?>
 	<? endif ?>
 </div>
 
-<?$price = preg_replace("/(.*)\.[0-9]+/","$1",$arResult['OFFERS'][0]['PRICE'][0]['PRICE'])." руб."?>
+<? $price = preg_replace("/(.*)\.[0-9]+/", "$1", $arResult['OFFERS'][0]['PRICE'][0]['PRICE']) . " руб." ?>
 
 <div class = "opisanie">
 	<h4><?= $arResult['NAME'] ?></h4>
@@ -58,16 +61,16 @@
 			</div>
 		<? endif?>
 		<? if (count($arResult['COLORS']) > 0): ?>
-		<div class = "clear"></div>
+			<div class = "clear"></div>
 
-		<div class = "select_main">
-			<span>Выберите цвет:</span>
-			<ul class = "setting_color">
-				<? foreach ($arResult['COLORS'] as $color): ?>
-					<li><a href = "#"><?= $color['VALUE'] ?></a></li>
-				<? endforeach ?>
-			</ul>
-		</div>
+			<div class = "select_main">
+				<span>Выберите цвет:</span>
+				<ul class = "setting_color">
+					<? foreach ($arResult['COLORS'] as $color): ?>
+						<li><a href = "#"><?= $color['VALUE'] ?></a></li>
+					<? endforeach ?>
+				</ul>
+			</div>
 		<? endif ?>
 
 
@@ -79,28 +82,28 @@
 <table class = "option" cellpadding = "0" cellspacing = "0">
 	<?
 	$types = array(
-	'Горные' => 'GORNYE',
-	'Горные женские' => 'GORNYE_ZHENSKIE',
-	'Горные двухподвесы' => 'GORNYE_DVUKHPODVESY',
-	'Горные 29"' => 'GORNYE_29',
-	'Дорожные' => 'DOROZHNYE',
-	'Подростковые' => 'PODROSTKOVYE',
-	'Циклокроссовые' => 'TSIKLOKROSSOVYE',
-	'Детские' => 'DETSKIE',
-	'Шоссейные' => 'SHOSSEYNYE',
-	'Складные' => 'SKLADNYE',
-	'Гибридные' => 'GIBRIDNYE',
-	'Электро' => 'ELEKTRO',
+		'Горные' => 'GORNYE',
+		'Горные женские' => 'GORNYE_ZHENSKIE',
+		'Горные двухподвесы' => 'GORNYE_DVUKHPODVESY',
+		'Горные 29"' => 'GORNYE_29',
+		'Дорожные' => 'DOROZHNYE',
+		'Подростковые' => 'PODROSTKOVYE',
+		'Циклокроссовые' => 'TSIKLOKROSSOVYE',
+		'Детские' => 'DETSKIE',
+		'Шоссейные' => 'SHOSSEYNYE',
+		'Складные' => 'SKLADNYE',
+		'Гибридные' => 'GIBRIDNYE',
+		'Электро' => 'ELEKTRO',
 	);
 	?>
 	<? foreach ($arResult['PROPERIES'] as $key => $prop): ?>
 		<? if ($prop['VALUE'] != '' && !is_array($prop['VALUE']) && $prop['NAME'] != 'Базовая единица' && !in_array($key, $types)
-	): ?>
-	<tr>
-		<td width = "300"><b><?= $prop['NAME'] ?></b></td>
-		<td><?= $prop['VALUE'] ?></td>
-	</tr>
-	<? endif ?>
+		): ?>
+			<tr>
+				<td width = "300"><b><?= $prop['NAME'] ?></b></td>
+				<td><?= $prop['VALUE'] ?></td>
+			</tr>
+		<? endif ?>
 	<? endforeach ?>
 </table>
 <div class = "marg">

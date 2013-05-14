@@ -810,7 +810,8 @@ ul.baner_down li a {
 
 .main_picture {
     float: left;
-    width: 190px;
+    width: 230px;
+    padding-right: -110px;
 }
 
 .big_picture {
@@ -828,8 +829,9 @@ ul.baner_down li a {
     background-color: #FEFEFE;
     width: 49px;
     height: 49px;
-    margin-right: 15px;
+    margin-right: 23px;
     float: left;
+    margin-bottom: 10px;
 }
 
 .opisanie {
@@ -1287,14 +1289,14 @@ select {
     padding-right: 10px;
 }
 
-ul.select_size{
-    list-style-type: none;
-    float: left;
-    margin-bottom: 7px;
-}
-ul.select_size li{
-    float: left;
-}
+/*ul.select_size{*/
+    /*list-style-type: none;*/
+    /*float: left;*/
+    /*margin-bottom: 7px;*/
+/*}*/
+/*ul.select_size li{*/
+    /*float: left;*/
+/*}*/
 ul.select_size li a{
     color: #434343;
     text-decoration: none;
@@ -1359,11 +1361,12 @@ ul.setting_color li a.active{
 
 ul.select_size{
     list-style-type: none;
-    float: left;
+    /*float: left;*/
     margin-bottom: 7px;
 }
 ul.select_size li{
     float: left;
+    margin-bottom: 10px;
 }
 ul.select_size li a{
     color: #434343;

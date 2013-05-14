@@ -11,7 +11,16 @@
 		$fields = $res->GetFields();
 		$fields['PROPERIES'] = $props;
 		$arResult = $fields;
-		$arResult['OFFERS'] = Velo::GetOffers($arResult['ID']);
+		$colorsAndSizes = Velo::GetOffers($arResult['ID']);
+		if(is_array($colorsAndSizes)){
+			foreach($colorsAndSizes as $value){
+				if($value['DESCRIPTION'] == 'Размер'){
+					$arResult['SIZES'][] = $value['VALUE'];
+				}else{
+					$arResult['COLORS'][] = $value['VALUE'];
+				}
+			}
+		}
 	}else{
 		$arResult['ERRORS'] = 'Нет ни одного элемента';
 	}

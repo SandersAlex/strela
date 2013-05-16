@@ -12,8 +12,10 @@
 		$fields['PROPERIES'] = $props;
 		$arResult = $fields;
 		$arResult['OFFERS'] = velo::GetOffers($arResult['ID']);
-		$arResult['COLORS'] = velo::GetColorsByTovarID($arResult['ID']);
+
+//		$arResult['COLORS'] = velo::GetColorsByTovarID($arResult['ID']);
 		$arResult['SIZE'] = velo::GetSizeByTovarID($arResult['ID']);
+		$arResult['COLORS'] = velo::GetColorBySize($arResult['ID'],$arResult['SIZE'][0]['VALUE']);
 	}else{
 		$arResult['ERRORS'] = 'Нет ни одного элемента';
 	}

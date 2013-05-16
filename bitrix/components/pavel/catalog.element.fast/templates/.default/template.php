@@ -45,6 +45,7 @@
 	<div class = "price1"><?= $price ?></div>
 
 	<form method = "post" action = "#">
+		<input type="hidden" value="<?=$arResult['COLORS'][0]['ID']?>" id="tovar_id" name="ID">
 		<input type = "submit" name = "text" class = "sub2" value = "в корзину"/>
 
 		<div class = "clear"></div>
@@ -63,7 +64,7 @@
 				<span>Выберите размер:</span>
 				<ul class = "select_size">
 					<? foreach ($arResult['SIZE'] as $vol): ?>
-						<li><a href = "#"><?= $vol['VALUE'] ?></a></li>
+						<li><a rel="<?=$arResult['ID']?>" href = "#"><?= $vol['VALUE'] ?></a></li>
 					<? endforeach ?>
 				</ul>
 			</div>
@@ -71,11 +72,11 @@
 		<? if (count($arResult['COLORS']) > 0): ?>
 			<div class = "clear"></div>
 
-			<div class = "select_main">
+			<div id='colors_select' class = "select_main">
 				<span>Выберите цвет:</span>
 				<ul class = "setting_color">
 					<? foreach ($arResult['COLORS'] as $color): ?>
-						<li><a href = "#"><?= $color['VALUE'] ?></a></li>
+						<li><a  href = "#"><?= $color['VALUE'] ?></a></li>
 					<? endforeach ?>
 				</ul>
 			</div>
@@ -118,15 +119,3 @@
 	<p> <?= str_replace("\n", "<br>", $arResult['DETAIL_TEXT']) ?></p>
 </div>
 <div class = "clear"></div>
-
-<script type = "text/javascript">
-
-	function ChangeIMG(small, big) {
-		jQuery('#small').attr('src', small);
-		jQuery('.big').attr('href', big);
-		jQuery('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
-	}
-
-
-
-</script>

@@ -40,11 +40,48 @@
 			return $result;
 		}
 
-		static function GetVeloPrice($element_id){
+		static function GetColoBySize($element_id, $size)
+		{
 			global $DB;
 			$result            = array();
 			$property_id       = self::$property_id;
+			$color_property_id = self::$color_property_id;
 			$q                 = "
+				SELECT
+				    size.VALUE
+				    , color.VALUE
+				    , comm.ID
+				FROM
+				    teach.b_iblock_element_property AS svyaz
+				    INNER JOIN teach.b_iblock_element AS element 
+				        ON (svyaz.VALUE = element.ID)
+				    INNER JOIN teach.b_iblock_element AS comm
+				        ON (svyaz.IBLOCK_ELEMENT_ID = comm.ID)
+				    INNER JOIN teach.b_iblock_element_property AS color 
+				        ON (color.IBLOCK_ELEMENT_ID = comm.ID)
+				    INNER JOIN teach.b_iblock_element_property AS size 
+				        ON (size.IBLOCK_ELEMENT_ID = comm.ID)
+				WHERE (element.ID = {$element_id}
+				    AND svyaz.IBLOCK_PROPERTY_ID = {$property_id}
+				    AND color.IBLOCK_PROPERTY_ID = {$color_property_id}
+				    AND size.VALUE = '{$size}'
+				    AND size.IBLOCK_PROPERTY_ID = {$color_property_id}
+				    AND size.DESCRIPTION = 'Размер'
+				    AND color.DESCRIPTION = 'Цвет');";
+
+			$s = $DB->Query($q);
+			while ($t = $s->Fetch()) {
+				$result[] = $t;
+			}
+			return $result;
+		}
+
+		static function GetVeloPrice($element_id)
+		{
+			global $DB;
+			$result      = array();
+			$property_id = self::$property_id;
+			$q           = "
 				SELECT
 				     price.*
 				FROM
@@ -53,7 +90,7 @@
 				WHERE
 				price.PRODUCT_ID = {$element_id}
 			";
-			$s                 = $DB->Query($q);
+			$s           = $DB->Query($q);
 			while ($t = $s->Fetch()) {
 				$result[] = $t;
 			}
@@ -63,9 +100,9 @@
 		static function GetOffers($element_id)
 		{
 			global $DB;
-			$result            = array();
-			$property_id       = self::$property_id;
-			$q                 = "
+			$result      = array();
+			$property_id = self::$property_id;
+			$q           = "
 				SELECT
 				     offers.*
 				FROM
@@ -76,12 +113,12 @@
 				    AND svyaz.VALUE = {$element_id}
 				 )
 			";
-			$s                 = $DB->Query($q);
+			$s           = $DB->Query($q);
 			while ($t = $s->Fetch()) {
-				$price = self::GetVeloPrice($t['ID']);
-				$fields = $t;
+				$price           = self::GetVeloPrice($t['ID']);
+				$fields          = $t;
 				$fields['PRICE'] = $price;
-				$result[] = $fields;
+				$result[]        = $fields;
 			}
 			return $result;
 		}

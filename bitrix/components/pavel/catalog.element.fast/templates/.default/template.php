@@ -1,6 +1,8 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
+
+
 <?$pics = CFile::ResizeImageGet($arResult['DETAIL_PICTURE'], array(
 	'width' => 200,
 	'height' => 200,
@@ -8,9 +10,9 @@
 <!--<pre>--><?//print_r($arResult['OFFERS'])?><!--</pre>-->
 <div class = "main_picture">
 	<div class = "big_picture">
-		<a href = "<?= CFile::GetPath($arResult['DETAIL_PICTURE']) ?>" class = 'cloud-zoom' id = 'zoom1'
-		   rel = "adjustX: 10, adjustY:-4, softFocus:true">
-			<img src = "<?= $pics['src'] ?>" alt = ""/>
+		<a href = "<?= CFile::GetPath($arResult['DETAIL_PICTURE']) ?>" class = 'cloud-zoom big' id = 'zoom1'
+		   rel = "adjustX: 20, adjustY:0, softFocus:true, zoomWidth: 200, zoomHeight : 200">
+			<img id = 'small' src = "<?= $pics['src'] ?>" alt = ""/>
 		</a>
 	</div>
 	<br>
@@ -21,9 +23,15 @@
 				'width' => 51,
 				'height' => 51
 			)) ?>
+			<?
+			$small_script = CFile::ResizeImageGet($photo, array(
+				'width' => 200,
+				'height' => 200
+			)) ?>
 
-			<div class = "small_picture">
-				<img src = "<?= $small['src']?>" alt = ""/>
+
+			<div onClick = "ChangeIMG('<?= $small_script['src'] ?>', '<?= CFile::GetPath($photo) ?>')" class = "small_picture">
+				<img src = "<?= $small['src'] ?>" alt = ""/>
 			</div>
 		<? endforeach ?>
 	<? endif ?>
@@ -111,3 +119,14 @@
 </div>
 <div class = "clear"></div>
 
+<script type = "text/javascript">
+
+	function ChangeIMG(small, big) {
+		jQuery('#small').attr('src', small);
+		jQuery('.big').attr('href', big);
+		jQuery('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
+	}
+
+
+
+</script>

@@ -309,15 +309,14 @@ IncludeTemplateLangFile(__FILE__);
 );?>
 </div>
 <?else:                        /*Else show special offer*/?>
-<?$APPLICATION->IncludeComponent(
-    "bitrix:eshop.catalog.top", "strela-main-slider-special", array(
+<?$APPLICATION->IncludeComponent("bitrix:eshop.catalog.top", "strela-main-slider-special", array(
 	"IBLOCK_TYPE_ID" => "goods",
-	"IBLOCK_ID" => "9",
+	"IBLOCK_ID" => "30",
 	"ELEMENT_SORT_FIELD" => "sort",
 	"ELEMENT_SORT_ORDER" => "asc",
 	"ELEMENT_COUNT" => "9",
 	"FLAG_PROPERTY_CODE" => "",
-	"OFFERS_LIMIT" => "5",
+	"OFFERS_LIMIT" => "15",
 	"OFFERS_FIELD_CODE" => array(
 		0 => "",
 		1 => "",
@@ -333,7 +332,7 @@ IncludeTemplateLangFile(__FILE__);
 	"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 	"PRODUCT_PROPS_VARIABLE" => "prop",
 	"SECTION_ID_VARIABLE" => "SECTION_ID",
-	"CACHE_TYPE" => "A",
+	"CACHE_TYPE" => "N",
 	"CACHE_TIME" => "3600",
 	"CACHE_GROUPS" => "Y",
 	"DISPLAY_COMPARE" => "N",

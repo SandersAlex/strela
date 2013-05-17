@@ -75,7 +75,7 @@
 				    AND size.DESCRIPTION = 'Размер'
 				    AND color.DESCRIPTION = 'Цвет')
 				GROUP BY
-				    color.VALUE
+				    color.VALUE;
 				    ";
 
 			$s = $DB->Query($q);

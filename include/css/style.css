@@ -1193,7 +1193,7 @@ select {
 }
 
 #nav li:hover a{
-    color: #ffffff;
+    /*color: #ffffff;*/
     /*border-bottom: 1px solid #D70101;*/
 }
 
@@ -1431,4 +1431,33 @@ ul.setting_color li a.active{
 .prop span{
     float: right;
     font-weight: bold;
+}
+
+
+
+#nav li ul {
+    /* second-level lists */
+    position: absolute;
+    width: 10em;
+    margin-left: -1000em;
+     z-index: 5000;
+}
+
+
+#nav li ul ul {
+    margin: -1em 0 0 -1000em;
+}
+
+#nav li:hover ul ul {
+    margin-left: -1000em;
+}
+
+
+#nav li:hover ul {
+    margin-left: 186px;
+    margin-top: -2.5em;
+}
+
+#nav li li:hover ul {
+    margin-left: 10em;
 }

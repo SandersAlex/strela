@@ -26,9 +26,9 @@ jQuery(function () {
         jQuery('#tovar_id').val('');
 
         jQuery('#colors_select').slideUp(200);
-        var id = this.rel;
-        var size = this.text;
-        var res = ajax_colors(id, size);
+        var id = jQuery(this).attr('rel');
+        var size = jQuery(this).text();
+        ajax_colors(id, size);
         jQuery('.select_size a').removeClass('active');
 
         jQuery(this).addClass('active');
@@ -41,7 +41,4 @@ jQuery(function () {
         jQuery(this).addClass('active');
         return false;
     });
-
-
-
 });

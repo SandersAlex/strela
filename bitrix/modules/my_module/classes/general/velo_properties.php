@@ -39,7 +39,7 @@
 		public function velo_properties()
 		{
 			foreach (velo_config::$proprs as $key => $vol) {
-				$this->result[$vol['CODE']] = $this->getPropsUniq($vol['ID']);
+				$this->result[$vol['CODE']] = $this->getPropsUniq($vol['ID'],$vol['TYPE_HTML']);
 			}
 
 		}
@@ -65,7 +65,7 @@
 		 * @param $prop_id
 		 * @return array
 		 */
-		public function getPropsUniq($prop_id)
+		public function getPropsUniq($prop_id,$type)
 		{
 			global $DB;
 			$result = array();
@@ -81,6 +81,7 @@
 		        ";
 			$res    = $DB->Query($q);
 			while ($t = $res->Fetch()) {
+				$t['type'] = $type;
 				$result[] = $t;
 			}
 			return $result;

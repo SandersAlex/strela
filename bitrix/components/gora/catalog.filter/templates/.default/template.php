@@ -1,7 +1,125 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
-<!--<pre>--><?//print_r($arResult)?><!--</pre>-->
+<div class = "clear"></div>
+<div class = "filtr">
+	<form action = "">
+		<table class = "tab_left">
+			<tr>
+				<td>ћарка:</td>
+				<td>
+					<select class = "select_opt">
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td> ол-во скоростей:</td>
+				<td><select class = "select_opt">
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>–азмер колеса:</td>
+				<td><select class = "select_opt">
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>ћатериал рамы:</td>
+				<td><select class = "select_opt">
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+						<option>любое значение</option>
+					</select></td>
+			</tr>
+		</table>
+
+		<table class = "tab_right">
+			<tr>
+				<td>“ип велосипеда:</td>
+			</tr>
+			<tr>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+				<td>
+					<label>
+						<input type = "checkbox" name = "checkbox"/>
+						<span>«начение параметра 1</span>
+					</label>
+				</td>
+			</tr>
+
+		</table>
+		<div class = "clear"></div>
+		<div class = "center_sub">
+			<input type = "reset" name = "reset" value = "—бросить" class = "sub4"/>
+			<input type = "submit" name = "submit" value = "ѕодобрать" class = "sub4"/>
+		</div>
+	</form>
+</div>
+<div class = "clear"></div>
+<pre><?print_r($arResult['debug'])?></pre>
 <div>
 	<form action="/velo/" method="GET">
 		<h2>ѕодобрать по своствам:</h2>

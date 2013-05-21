@@ -14,13 +14,12 @@
 					</td>
 				</tr>
 			<? endforeach ?>
-
 		</table>
-		<table class='tab_right'>
-		<? foreach ($arResult['FORMS']['checkbox'] as $vol): ?>
-			<?= $vol ?>
-		<? endforeach ?>
-			</table>
+		<table class = 'tab_right'>
+			<? foreach ($arResult['FORMS']['checkbox'] as $vol): ?>
+				<?= $vol ?>
+			<? endforeach ?>
+		</table>
 		<div class = "clear"></div>
 		<div class = "center_sub">
 			<input type = "reset" name = "reset" value = "Сбросить" class = "sub4"/>
@@ -30,16 +29,16 @@
 </div>
 <div class = "clear"></div>
 <!--<pre>--><?// print_r($arResult['debug']) ?><!--</pre>-->
-<div>
-	<form action = "/velo/" method = "GET">
-		<h2>Подобрать по своствам:</h2>
-		<? foreach ($arResult['FORMS']['select'] as $key => $vol): ?>
-			<div class = "option_filter"><?= $key ?> <?= $vol ?></div>
-		<? endforeach ?>
-		<div style = "clear: both">
-			<input class = "sub_a" type = "submit" value = "Подобрать">
-		</div>
-	</form>
-</div>
+<!--<div>-->
+<!--	<form action = "/velo/" method = "GET">-->
+<!--		<h2>Подобрать по своствам:</h2>-->
+<!--		--><? // foreach ($arResult['FORMS']['select'] as $key => $vol): ?>
+<!--			<div class = "option_filter">--><?//= $key ?><!-- --><?//= $vol ?><!--</div>-->
+<!--		--><? // endforeach ?>
+<!--		<div style = "clear: both">-->
+<!--			<input class = "sub_a" type = "submit" value = "Подобрать">-->
+<!--		</div>-->
+<!--	</form>-->
+<!--</div>-->
 
 

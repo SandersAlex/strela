@@ -9,7 +9,7 @@
 			'Марка' => array(
 				'ID' => '267',
 				'CODE' => 'MARKA',
-				'TYPE_HTML' => 'select'
+				'TYPE_HTML' => 'checkbox'
 			),
 			'Тип велосипеда' => array(
 				'ID' => '268',

@@ -4,6 +4,7 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
+<?CModule::IncludeModule('my_module')?>
 <!--    <pre>--><?//print_r($arResult)?><!--</pre>-->
 <? if (count($arResult["ITEMS"]) > 0): ?>
 	<h3><?=$_REQUEST['BRAND']?></h3>
@@ -22,6 +23,7 @@
 
 		<?foreach ($arResult["ITEMS"] as $key => $arItem):
 			if (is_array($arItem)) {
+				$offers = velo::GetOffers($arItem['ID']);
 				$bPicture = is_array($arItem["DETAIL_PICTURE"]);
 				?>
 				<li>
@@ -53,6 +55,7 @@
 								<?
 								//echo GetMessage("CR_PRICE_OT")."&nbsp;";
 								echo $arItem["PRINT_MIN_OFFER_PRICE"];
+
 								?>
 							</div>
 						<?
@@ -96,7 +99,7 @@
 
 						   </div>    -->
 					<? if (!(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) && !$arItem["CAN_BUY"]): ?>
-						<div class = "badge notavailable"><?=GetMessage("CATALOG_NOT_AVAILABLE2")?></div>
+						<div class = "badge"><?=$offers[0]['PRICE'][0]['PRICE'];?> руб.</div>
 					<? endif ?>
 				</li>
 			<?

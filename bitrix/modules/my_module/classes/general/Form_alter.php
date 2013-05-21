@@ -21,28 +21,32 @@
 			$props   = array();
 			$before  = "
 			<tr>
-			<td>{$title}
+			<td><span style='padding-bottom: 7px; font-weight: bold;'>{$title}</span>
 			</td></tr>";
 			$i       = 0;
 			foreach ($array as $vol) {
 				if ($i < $rows-1) {
 					$i++;
-					$selected = in_array($vol['VALUE'],$_REQUEST[$name]) == $vol['VALUE'] ? "checked='checked'" : '';
+					$selected = in_array($vol['VALUE'],$_REQUEST[$name]) == $vol['VALUE'] ? "checked" : '';
 					$content .= "
 					<td>
 					<label>
+					<div style='float:left;'>
 					<input type='checkbox' {$selected} value='{$vol['VALUE']}' name='{$name}[]'/>
+					</div>
 					<span>{$vol['VALUE']}</span>
 					</label>
 					</td>";
 				}
 				else {
-					$selected = in_array($vol['VALUE'],$_REQUEST[$name]) == $vol['VALUE'] ? "checked='checked'" : '';
+					$selected = in_array($vol['VALUE'],$_REQUEST[$name]) == $vol['VALUE'] ? "checked" : '';
 
 					$content .= "
 <td>
 										<label>
+										<div style='float:left;'>
 										<input type='checkbox' {$selected} value='{$vol['VALUE']}' name='{$name}[]'/>
+										</div>
 										<span>{$vol['VALUE']}</span>
 										</label></td>";
 					$props[] = "<tr>" . $content . "</tr>";

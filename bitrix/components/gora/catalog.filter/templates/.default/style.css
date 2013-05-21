@@ -41,6 +41,8 @@
     position: relative;
     top: -2px;
     color: #000000;
+    display: block;
+    margin-left: 14px;;
 }
 
 .center_sub{

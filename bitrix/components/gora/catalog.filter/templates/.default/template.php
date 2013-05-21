@@ -2,9 +2,9 @@
 	die();
 } ?>
 <div class = "clear"></div>
-<h2>Подобрать по своствам:</h2>
-<div class = "filtr">
-	<form action = "">
+<h2 id="filter_toggle" style=" cursor: pointer; border-bottom: 1px dashed;">Подобрать по свойствам:</h2><br>
+<div class = "filtr" style="display: none;">
+	<form action = "/velo/">
 		<table class = "tab_left">
 			<? foreach ($arResult['FORMS']['select'] as $key => $vol): ?>
 				<tr>

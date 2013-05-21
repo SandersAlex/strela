@@ -17,13 +17,18 @@
 	<ul class="tovar_slaid" id="container">
 
 <?foreach($arResult["ITEMS"] as $key => $arItem):
+
 	if(is_array($arItem))
 	{
-		$bPicture = is_array($arItem["PREVIEW_IMG"]);
+		$bPicture = is_array($arItem["DETAIL_PICTURE"]);
         ?><li>
 			<?if ($bPicture):?>
+			<?$pic = CFile::ResizeImageGet($arItem["DETAIL_PICTURE"]['ID'],array('width' => $arParams['DISPLAY_IMG_WIDTH'],
+			'height' => $arParams['DISPLAY_IMG_HEIGHT']))?>
             <div class="img_tovar">
-				<a class="link" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img class="item_img" itemprop="image" src="<?=$arItem["PREVIEW_IMG"]["SRC"]?>" width="<?=$arItem["PREVIEW_IMG"]["WIDTH"]?>" height="<?=$arElement["PREVIEW_IMG"]["HEIGHT"]?>" alt="<?=$arElement["NAME"]?>" /></a>
+				<a class="link" href="<?=$arItem["DETAIL_PAGE_URL"]?>">
+					<img class="item_img" itemprop="image" src="<?=$pic['src']?>"  alt="<?=$arElement["NAME"]?>" />
+				</a>
             </div>
             <?else:?>
             <div class="img_tovar">

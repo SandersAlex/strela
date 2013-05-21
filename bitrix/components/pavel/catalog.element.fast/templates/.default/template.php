@@ -44,9 +44,9 @@
 
 	<div class = "price1"><?= $price ?></div>
 
-	<form method = "post" action = "#">
+	<form method = "post" action = "">
 		<input type="hidden" value="<?=$arResult['COLORS'][0]['ID']?>" id="tovar_id" name="ID">
-		<input type = "submit" name = "text" class = "sub2" value = "в корзину"/>
+		<input type = "submit" name = "text"  class = "sub2" value = "в корзину"/>
 
 		<div class = "clear"></div>
 		<p>В наличии</p>

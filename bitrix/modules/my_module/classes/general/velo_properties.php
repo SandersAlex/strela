@@ -44,6 +44,12 @@
 
 		}
 
+
+		/**
+		 * @param $prop_code
+		 * @return mixed
+		 * Возвращает Название(подпись) свойства инфоблока, по его мнемоническому коду
+		 */
 		static function GetNamePropsByPropsCode($prop_code)
 		{
 			global $DB;
@@ -64,6 +70,7 @@
 		/**
 		 * @param $prop_id
 		 * @return array
+		 * Возвращает массив уникальных значений свойства по его id
 		 */
 		public function getPropsUniq($prop_id,$type)
 		{

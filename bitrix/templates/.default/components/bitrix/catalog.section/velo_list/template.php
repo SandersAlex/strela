@@ -99,7 +99,7 @@
 
 						   </div>    -->
 					<? if (!(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) && !$arItem["CAN_BUY"]): ?>
-						<div class = "badge"><?=$offers[0]['PRICE'][0]['PRICE'];?> руб.</div>
+						<div class = "price"><?=preg_replace("/([0-9]+)([0-9]{3})\.00/","$1 $2",$offers[0]['PRICE'][0]['PRICE'])?> руб</div>
 					<? endif ?>
 				</li>
 			<?

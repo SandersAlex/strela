@@ -44,9 +44,11 @@
 
 	<div class = "price1"><?= $price ?></div>
 
-	<form method = "post" action = "">
-		<input type="hidden" value="<?=$arResult['COLORS'][0]['ID']?>" id="tovar_id" name="ID">
-		<input type = "submit" name = "text"  class = "sub2" value = "в корзину"/>
+	<form method = "get" action = "<?=POST_FORM_ACTION_URI?>">
+<!--		<input type="hidden" name="--><?//echo $arParams["ACTION_VARIABLE"]?><!--" value="BUY">-->
+		<input type="hidden" value="<?=$arResult['COLORS'][0]['ID']?>" id="tovar_id" name="id">
+		<input type="hidden" value="ADD2BASKET"  name="action">
+		<input type = "submit" name = "ADD2BASKET"  class = "sub2" value = "в корзину"/>
 
 		<div class = "clear"></div>
 		<p>В наличии</p>

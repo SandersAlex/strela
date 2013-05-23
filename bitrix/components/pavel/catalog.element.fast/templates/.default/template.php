@@ -7,7 +7,7 @@
 	'width' => 200,
 	'height' => 200,
 ))?>
-<!--<pre>--><?//print_r($arResult['OFFERS'])?><!--</pre>-->
+<!--<pre>--><?//print_r($arResult)?><!--</pre>-->
 <div class = "main_picture">
 	<div class = "big_picture">
 		<a href = "<?= CFile::GetPath($arResult['DETAIL_PICTURE']) ?>" class = 'cloud-zoom big' id = 'zoom1'
@@ -42,7 +42,7 @@
 <div class = "opisanie">
 	<h4><?= $arResult['NAME'] ?></h4>
 
-	<div class = "price1"><?= $price ?></div>
+	<div class = "price1" style="font-weight: bold; font-size: 20px"><?= preg_replace("/([0-9]+)([0-9]{3})/","$1 $2",$price) ?></div>
 
 	<form method = "get" action = "<?=POST_FORM_ACTION_URI?>">
 <!--		<input type="hidden" name="--><?//echo $arParams["ACTION_VARIABLE"]?><!--" value="BUY">-->
@@ -93,7 +93,9 @@
 <table class = "option" cellpadding = "0" cellspacing = "0">
 	<?
 	$types = array(
-		'Горные' => 'GORNYE',
+		'Горные' => 'TIP_VELOSIPEDA',
+		'Возрастная категория' => 'VOZRASTNAYA_KATEGORIYA',
+		'Тип' => 'GORNYE',
 		'Горные женские' => 'GORNYE_ZHENSKIE',
 		'Горные двухподвесы' => 'GORNYE_DVUKHPODVESY',
 		'Горные 29"' => 'GORNYE_29',

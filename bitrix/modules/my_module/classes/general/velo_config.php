@@ -5,7 +5,7 @@
 //			'Страна' => array(
 //				'ID' => '265',
 //				'CODE' => 'STRANA',
-//				'TYPE_HTML' => 'select'
+//				'TYPE_HTML' => 'checkbox'
 //			),
 			'Марка' => array(
 				'ID' => '267',

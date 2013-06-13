@@ -18,6 +18,7 @@
 	}
 	$arResult['debug'] = $props->result;
 
+
 	$arResult['result']            = $props;
 	$arResult['FORMS']['select']   = $select;
 	$arResult['FORMS']['checkbox'] = $checkbox;

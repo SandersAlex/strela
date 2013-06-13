@@ -2,6 +2,8 @@
 define("DBPersistent", false);
 $DBType = "mysql";
 $DBHost = "localhost";
+
+
 #$DBLogin = "******";
 #$DBLogin = "******";
 #$DBLogin = "******";
@@ -17,7 +19,7 @@ $DBLogin = "strela333";
 #$DBPassword = "******";
 #$DBPassword = "******";
 //$DBPassword = "p77Xt7vu";
-$DBPassword = "123";
+$DBPassword = "3455464";
 
 
 

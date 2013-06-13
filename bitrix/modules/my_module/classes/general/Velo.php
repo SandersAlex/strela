@@ -7,6 +7,43 @@
 		static $color_property_id = 370; //айди свойства цветов и размеров
 
 
+
+		static function GetPriceVeloByComPredlozh(){
+			$tor_connect = self::$property_id;
+			global $DB;
+			$q = "
+			SELECT
+			   velo.ID,
+			   velo.IBLOCK_ID,
+			   velo.NAME,
+			   predlozh.ID as predlozhenie,
+			   predlozh.NAME as predName,
+			   price.PRICE as price
+			FROM
+			 b_iblock_element as velo
+			 LEFT JOIN b_iblock_element_property AS property
+			 ON(property.VALUE = velo.ID)
+
+			 LEFT JOIN b_iblock_element AS predlozh
+			 ON(property.IBLOCK_ELEMENT_ID = predlozh.ID)
+
+			 LEFT JOIN b_catalog_price AS price
+			 ON(price.PRODUCT_ID = predlozh.ID)
+
+			 WHERE
+			   velo.IBLOCK_ID = 30 AND
+			   property.IBLOCK_PROPERTY_ID = {$tor_connect}
+			   GROUP BY velo.ID
+			";
+
+			$result = array();
+			$temp = $DB->Query($q);
+			while($t = $temp->Fetch()){
+				$result[] = $t;
+			}
+			return $result;
+		}
+
 		/**
 		 * @param $element_id
 		 * @return array

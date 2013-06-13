@@ -6,6 +6,13 @@
 <div class = "filtr" style="display: none;">
 	<form action = "/velo/">
 		<table class = "tab_left">
+			<tr>
+				<td>Стоимость</td>
+				<td>
+					от <input class="price_value" type="text" name="price_min" value="<?=$_REQUEST['price_min']?>">
+					до <input class="price_value" type="text" name="price_max" value="<?=$_REQUEST['price_max']?>">
+				</td>
+			</tr>
 			<? foreach ($arResult['FORMS']['select'] as $key => $vol): ?>
 				<tr>
 					<td><?= $key ?>:</td>

@@ -4,7 +4,7 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
-<?CModule::IncludeModule('my_module')?>
+<? CModule::IncludeModule('my_module') ?>
 <!--    <pre>--><?//print_r($arResult)?><!--</pre>-->
 <? if (count($arResult["ITEMS"]) > 0): ?>
 	<h3><?=$_REQUEST['BRAND']?></h3>
@@ -34,12 +34,14 @@
 									'width' => 220,
 									'height' => 150
 								))?>
-								<img class = "item_img" itemprop = "image" src = "<?= $img['src'] ?>" alt = "<?= $arElement["NAME"] ?>"/></a>
+								<img class = "item_img" itemprop = "image" src = "<?= $img['src'] ?>" alt = "<?=
+								$arElement["NAME"]
+								?>"/></a>
 						</div>
 					<? else: ?>
 						<div class = "img_tovar">
 							<a href = "<?= $arItem["DETAIL_PAGE_URL"] ?>">
-								<div class = "no-photo-div-big" style = "height:130px; width:130px;"></div>
+								<img src="/include/image/zaglushka.png" />
 							</a>
 						</div>
 					<?endif ?>
@@ -99,7 +101,8 @@
 
 						   </div>    -->
 					<? if (!(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])) && !$arItem["CAN_BUY"]): ?>
-						<div class = "price"><?=preg_replace("/([0-9]+)([0-9]{3})\.00/","$1 $2",$offers[0]['PRICE'][0]['PRICE'])?> руб</div>
+						<div class = "price"><?=preg_replace("/([0-9]+)([0-9]{3})\.00/", "$1 $2", $offers[0]['PRICE'][0]['PRICE'])?>руб
+						</div>
 					<? endif ?>
 				</li>
 			<?

@@ -22,8 +22,8 @@
 		$arrFilter[] = array(
 			'LOGIC' => 'AND',
 			array(
-				">CATALOG_PRICE_1" => $_REQUEST['price_min'],
-				"<CATALOG_PRICE_1" => $_REQUEST['price_max']
+				">CATALOG_PRICE_2" => $_REQUEST['price_min'],
+				"<CATALOG_PRICE_2" => $_REQUEST['price_max']
 			)
 		);
 	}
